@@ -1,0 +1,336 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+label {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: royalblue;
+}
+
+body.pricing {
+    background-color: white;
+}
+
+.login-container,
+.signup-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#login-form,
+#signup-form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.input-container {
+    text-align: left;
+    margin: 15px 0;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 24px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+button {
+    background-color: royalblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    width: 100%;
+}
+
+.signup-text {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+a {
+    color: royalblue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Pricing Page Styles */
+.pricing-container {
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.switch-wrapper {
+    position: relative;
+    display: inline-flex;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    margin-bottom: 0px;
+    margin-right: 80px;
+    border-radius: 40px;
+    background: royalblue;
+    /* Toggle Button Background */
+}
+
+.switch-wrapper [type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+
+.switch-wrapper [type="radio"]:checked#monthly~label[for="monthly"],
+.switch-wrapper [type="radio"]:checked#yearly~label[for="yearly"] {
+    color: royalblue;
+    /* Text Color on Toggle Button Check */
+    background: white;
+    /* Toggle Button Background on Check */
+}
+
+.switch-wrapper [type="radio"]:checked#monthly~label[for="monthly"]:hover,
+.switch-wrapper [type="radio"]:checked#yearly~label[for="yearly"]:hover {
+    background: transparent;
+}
+
+.switch-wrapper [type="radio"]:checked#monthly+label[for="yearly"]~.highlighter {
+    transform: none;
+}
+
+.switch-wrapper [type="radio"]:checked#yearly+label[for="monthly"]~.highlighter {
+    transform: translateX(100%);
+}
+
+.switch-wrapper label {
+    font-size: 16px;
+    z-index: 1;
+    min-width: 70px;
+    line-height: 32px;
+    cursor: pointer;
+    color: white;
+    border-radius: 40px;
+    transition: color 0.25s ease-in-out;
+    padding-left: 10px;
+}
+
+.switch-wrapper label:hover {
+    background: lightgray;
+}
+
+.switch-wrapper .highlighter {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    border-radius: 30px;
+    transition: transform 0.25s ease-in-out;
+}
+
+.switch-wrapper [type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+
+/* Pricing Table Styles */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.pricing-table td {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.pricing-table th {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.pricing-table th.heading {
+    background-color: rgb(108, 154, 197);
+    color: white;
+    font-weight: bold;
+    position: relative;
+    margin-right: 20px;
+}
+
+.pricing-table th.heading:hover {
+    background-color: royalblue;
+    cursor: pointer;
+}
+
+.pricing-table td {
+    background-color: white;
+    padding: 15px 20px;
+    /* Increased padding */
+    border-bottom: 1px solid lightgrey;
+}
+
+/* Margin between devices */
+.pricing-table td:last-child {
+    margin-top: 10px;
+}
+
+/* Lines between rows */
+.pricing-table tr:not(:last-child) {
+    border-bottom: 1px solid lightgrey;
+}
+
+button#next-button {
+    width: 200px;
+    margin: 20px auto;
+}
+
+.pricing-table td {
+    padding: 20px 20px;
+    text-align: left;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.pricing-table td.mobile {
+    margin-bottom: 10px;
+}
+
+.pricing-table td ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.pricing-table td ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.pricing-table th.heading:hover {
+    color: white;
+}
+
+.hover-highlight {
+    color: royalblue;
+}
+
+.device-list span {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 12px;
+    transition: color 0.25s ease-in-out;
+}
+
+.pricing-table th.heading:hover ~ tr td,
+.pricing-table th.heading:hover ~ .pricing-table td,
+.pricing-table th.heading:hover ~ tr .toggle-heading,
+.pricing-table th.heading:hover ~ tr .device-list span {
+    color: royalblue;
+}
+
+.pricing-table tr.device-row td {
+    border-bottom: none;
+}
+
+.package-button {
+    position: relative;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.package-button-inner {
+    width: 100px;
+    height: 100px;
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: lightblue;
+    border: none;
+    border-radius: 2px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.package-button-inner:hover,
+.package-button-inner:focus {
+    background-color: royalblue;
+    color: white;
+}
+
+.package-button-inner[aria-pressed="true"] {
+    background-color: royalblue;
+    color: white;
+}
+
+.pricing-table tr td:not(:first-child) {
+    text-align: center;
+}
+
+.package-button-inner:hover ~ .pricing-table td.mobile,
+.package-button-inner[aria-pressed="true"] ~ .pricing-table td.mobile {
+    color: royalblue;
+}
+
+.package-button-inner:hover ~ .pricing-table td.basic,
+.package-button-inner[aria-pressed="true"] ~ .pricing-table td.basic {
+    color: royalblue;
+}
+
+.package-button-inner:hover ~ .pricing-table td.standard,
+.package-button-inner[aria-pressed="true"] ~ .pricing-table td.standard {
+    color: royalblue;
+}
+
+.package-button-inner:hover ~ .pricing-table td.premium,
+.package-button-inner[aria-pressed="true"] ~ .pricing-table td.premium {
+    color: royalblue;
+}
+
+.highlight-column {
+    color: royalblue;
+  }

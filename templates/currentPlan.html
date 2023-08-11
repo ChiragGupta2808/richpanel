@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/currentPlan.css') }}">
+    <title>Current Plan Page</title>
+</head>
+<body class="current-plan">
+    <div class="card">
+        <div class="header">
+            <h1>Current Plan Details</h1>
+            <span class="active-tag">Active</span>
+            <a href="#" class="cancel-link">Cancel</a>
+        </div>
+        <div class="plan-details">
+            <h2 class="plan-name">Basic</h2>
+            <p>Phone + Tablet</p>
+            <h3 class="plan-price">&#8377; 2000<span>/yr</span></h3>
+            <button class="change-plan-button">Change Plan</button>
+            <p class="subscription-info">Your subscription has started on Jul 11th, 2022 and will auto renew on July 12th, 2023.</p>
+        </div>
+    </div>
+</body>
+</html>

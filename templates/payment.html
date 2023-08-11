@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}">
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Payment Page</title>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-card">
+            <div class="section1">
+                <form id="payment-form" data-secret="{{ client_secret }}">
+                    <h1>Complete Payment</h1>
+                    <p>Enter your credit or debit card details below:</p>
+                    <div id="card-element">
+                        <!-- <input type="text" class="card_number" placeholder="Card number">
+                        <input type="text" class="expiry" pattern="\d{2}/\d{2}" placeholder="MM/YY">
+                        <input type="text" class="cvc" placeholder="CVC"> -->
+                    </div>
+                    <div id="card-errors" role="alert">
+                        
+                    </div>
+                    <button type="submit" class="confirm-payment-button">Confirm Payment</button>
+                </form>
+            </div>
+            <div class="section2">
+                <h2>Order Summary</h2>
+                <table class="order-summary-table">
+                    <tr>
+                        <td>Plan Name</td>
+                        <td class="right-align code"></td>
+                    </tr>
+                    <tr>
+                        <td>Billing Cycle</td>
+                        <td class="right-align plan"></td>
+                    </tr>
+                    <tr>
+                        <td>Plan Price</td>
+                        <td class="right-align price"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="\static\js\payment.js"></script>
+    <script>
+
+        const da = window.location.search
+        var stripe = Stripe('pk_test_51NdnsPSBItKImWPpmISOIDUqQ3Vsc7k3VBOIj5p0DLwmJoRG0XqUiP3jy5GTXE2Z17dxniaMeRSLZDHoQr0aBPgS00VGaAVwB0');
+        var elements = stripe.elements();
+
+        // Set up Stripe.js and Elements to use in checkout form
+        var elements = stripe.elements();
+        var style = {
+            base: {
+                color: "#32325d",
+            }
+        };
+
+        var card = elements.create("card", { style: style });
+        card.mount("#card-element");
+
+        card.on('change', ({error}) => {
+        let displayError = document.getElementById('card-errors');
+        if (error) {
+            displayError.textContent = error.message;
+        } else {
+            displayError.textContent = '';
+        }
+        });
+
+        var form = document.getElementById('payment-form');
+
+        form.addEventListener('submit', function(ev) {
+            ev.preventDefault();
+            // If the client secret was rendered server-side as a data-secret attribute
+            // on the <form> element, you can retrieve it here by calling `form.dataset.secret`
+            stripe.confirmCardPayment(form.dataset.secret, {
+                payment_method: {
+                card: card,
+                billing_details: {
+                    name: 'Jenny Rosen'
+                }
+                }
+            }).then(function(result) {
+                if (result.error) {
+                // Show error to your customer (for example, insufficient funds)
+                console.log("Oops getting some eror")
+                console.log(result.error.message);
+                } else {
+                // The payment has been processed!
+                if (result.paymentIntent.status === 'succeeded') {
+                    console.log("Succes")
+                    window.location.replace("/currentPlan" + da)
+                }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

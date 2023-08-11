@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Login Page</title>
+</head>
+
+<body class="pricing">
+    <div class="pricing-container">
+        <h1>Choose the right plan for you</h1>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th class="toggle-heading">
+                        <div class="switch-wrapper">
+                            <input id="monthly" type="radio" name="switch" value="monthly" checked>
+                            <input id="yearly" type="radio" name="switch" value="yearly">
+                            <label id="monthly-sel" for="monthly">Monthly</label>
+                            <label id="yearly-sel" for="yearly">Yearly</label>
+                            <span class="highlighter"></span>
+                        </div>
+                    </th>
+                    <th class="package-button">
+                        <button class="package-button-inner" for="mobile" onclick="setPackage('Mobile')">Mobile</button>
+                    </th>
+                    <th class="package-button">
+                        <button class="package-button-inner" for="basic" onclick="setPackage('Basic')">Basic</button>
+                    </th>
+                    <th class="package-button">
+                        <button class="package-button-inner" for="standard" onclick="setPackage('Standard')">Standard</button>
+                    </th>
+                    <th class="package-button">
+                        <button class="package-button-inner" for="premium" onclick="setPackage('Premium')">Premium</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="toggle-heading">Monthly Price</td>
+                    <td class="mobile mobilePrice">Rs. 100</td>
+                    <td class="basic basicPrice">Rs. 200</td>
+                    <td class="standard standardPrice">Rs. 500</td>
+                    <td class="premium premiumPrice">Rs. 700</td>
+                </tr>
+                <tr>
+                    <td class="toggle-heading">Video Quality</td>
+                    <td class="mobile">Good</td>
+                    <td class="basic">Good</td>
+                    <td class="standard">Better</td>
+                    <td class="premium">Best</td>
+                </tr>
+                <tr>
+                    <td class="toggle-heading">Resolution</td>
+                    <td class="mobile">480p</td>
+                    <td class="basic">480p</td>
+                    <td class="standard">1080p</td>
+                    <td class="premium">4K + HDR</td>
+                </tr>
+                <tr class="device-row">
+                    <td class="toggle-heading">Devices you can use to watch</td>
+                    <td class="mobile">
+                        <ul class="device-list">
+                            <span>Phone</span>
+                            <span>Tablet</span>
+                        </ul>
+                    </td>
+                    <td class="basic">
+                        <ul class="device-list">
+                            <span>Phone</span>
+                            <span>Tablet</span>
+                            <span>Computer</span>
+                            <span>TV</span>
+                        </ul>
+                    </td>
+                    <td class="standard">
+                        <ul class="device-list">
+                            <span>Phone</span>
+                            <span>Tablet</span>
+                            <span>Computer</span>
+                            <span>TV</span>
+                        </ul>
+                    </td>
+                    <td class="premium">
+                        <ul class="device-list">
+                            <span>Phone</span>
+                            <span>Tablet</span>
+                            <span>Computer</span>
+                            <span>TV</span>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="goToPayment()" id="next-button">Next</button>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.pricing-table th.heading').hover(function () {
+                var index = $(this).index();
+
+                $('.pricing-table tr').each(function () {
+                    $(this).find('td').eq(index).addClass('hover-highlight');
+                    $(this).find('td').eq(index).find('span').addClass('hover-highlight');
+                });
+            }, function () {
+                $('.pricing-table td').removeClass('hover-highlight');
+                $('.pricing-table span').removeClass('hover-highlight');
+            });
+        });
+    </script>
+    <script src="\static\js\pricing.js"></script>
+</body>
+
+</html>

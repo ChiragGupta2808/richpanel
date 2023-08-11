@@ -1,0 +1,117 @@
+/* Payment Container */
+body {
+    background-color: royalblue;
+    font-family: Arial, sans-serif;
+}
+
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Payment Card */
+.payment-card {
+    display: flex;
+    width: 80%;
+    max-width: 800px; /* Adjust the maximum width as needed */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Section 1 */
+.section1 {
+    flex: 1;
+    padding: 30px;
+    background-color: white;
+    max-width: 50%; /* Decreased width */
+}
+
+.section1 h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section1 p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#card-element {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px; 
+    padding: 10px;
+}
+
+.card-inputs {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+.card-inputs input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+}
+
+.card_number {
+    max-width: 350px;
+}
+
+.expiry {
+    max-width: 50px;
+}
+
+.cvc {
+    max-width: 50px;
+}
+
+.confirm-payment-button {
+    background-color: royalblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 65%;
+}
+
+/* Section 2 */
+.section2 {
+    flex: 1;
+    padding: 30px;
+    background-color: #f9f9f9;
+    overflow: auto; /* Enable scrolling if content overflows */
+    max-width: 35%; /* Increased width */
+}
+
+.section2 h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.order-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-summary-table td {
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+}
+
+.order-summary-table .right-align {
+    text-align: right;
+}
