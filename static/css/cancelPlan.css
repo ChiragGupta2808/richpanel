@@ -36,14 +36,24 @@ body.current-plan {
     margin-bottom: 20px;
 }
 
+.header .header-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
 .header h1 {
     font-size: 24px;
+    font-weight: 600;
+    margin-right: 16px;
 }
+
 
 .active-tag {
     background-color: rgb(223, 206, 209);
     color: rgb(255, 32, 32);
-    padding: 4px 4px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-size: 11px;
     margin-left: 0px;

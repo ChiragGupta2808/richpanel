@@ -25,16 +25,16 @@
                         </div>
                     </th>
                     <th class="package-button">
-                        <button class="package-button-inner" for="mobile" onclick="setPackage('Mobile')">Mobile</button>
+                        <button class="package-button-inner" for="mobile" onclick="setPackage('mobile')">Mobile</button>
                     </th>
                     <th class="package-button">
-                        <button class="package-button-inner" for="basic" onclick="setPackage('Basic')">Basic</button>
+                        <button class="package-button-inner" for="basic" onclick="setPackage('basic')">Basic</button>
                     </th>
                     <th class="package-button">
-                        <button class="package-button-inner" for="standard" onclick="setPackage('Standard')">Standard</button>
+                        <button class="package-button-inner" for="standard" onclick="setPackage('standard')">Standard</button>
                     </th>
                     <th class="package-button">
-                        <button class="package-button-inner" for="premium" onclick="setPackage('Premium')">Premium</button>
+                        <button class="package-button-inner" for="premium" onclick="setPackage('premium')">Premium</button>
                     </th>
                 </tr>
             </thead>
@@ -99,9 +99,8 @@
     </div>
     <script>
         $(document).ready(function () {
-            $('.pricing-table th.heading').hover(function () {
+            $('.pricing-table th').hover(function () {
                 var index = $(this).index();
-
                 $('.pricing-table tr').each(function () {
                     $(this).find('td').eq(index).addClass('hover-highlight');
                     $(this).find('td').eq(index).find('span').addClass('hover-highlight');

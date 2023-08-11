@@ -4,22 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/currentPlan.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Current Plan Page</title>
 </head>
 <body class="current-plan">
     <div class="card">
         <div class="header">
-            <h1>Current Plan Details</h1>
-            <span class="active-tag">Active</span>
+            <div class="header-left">
+                <h1>Current Plan Details</h1>
+                <span class="active-tag">Active</span>
+            </div>
             <a href="#" class="cancel-link">Cancel</a>
         </div>
         <div class="plan-details">
-            <h2 class="plan-name">Basic</h2>
-            <p>Phone + Tablet</p>
-            <h3 class="plan-price">&#8377; 2000<span>/yr</span></h3>
-            <button class="change-plan-button">Change Plan</button>
+            <h2 class="plan-name" style="text-transform: capitalize;"></h2>
+            <p id="devicesList"></p>
+            <h3 class="plan-price">&#8377; <span id="amount"></span><span id="duration"></span></h3>
+            <button class="change-plan-button" onclick="navigate()">Change Plan</button>
             <p class="subscription-info">Your subscription has started on Jul 11th, 2022 and will auto renew on July 12th, 2023.</p>
         </div>
     </div>
+    <script>
+
+        function navigate() {
+            const da = window.location.search
+            window.location.href = '/cancelPlan' + da;
+        }
+
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        $(document).ready(function () {
+            const code = getQueryParam("code");
+            const plan = getQueryParam("plan");
+            const price = getQueryParam("price");
+            const quality = getQueryParam("quality");
+            const resolution = getQueryParam("resolution");
+            const devices = getQueryParam("devices");
+
+            document.getElementsByClassName("plan-name")[0].innerHTML = code;
+            document.getElementById("amount").innerHTML = price;
+            document.getElementById("duration").innerHTML = plan === "yearly" ? "/yr" : "/mo";
+            document.getElementById("devicesList").innerHTML = devices.split(',').join(' + ');
+        });
+    </script>
 </body>
 </html>

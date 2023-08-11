@@ -1,30 +1,23 @@
-let _code = "";
-let _price;
-let _plan;
-let _quality;
-let _resolution;
-let _devices;
-let _packages;
 let monthlyPackages = {
-  "Mobile": {
+  "mobile": {
     price: 100,
     quality: "Good",
     resolution: "480p",
     devices: ["Phone", "Tablet"]
   },
-  "Basic": {
+  "basic": {
     price: 200,
     quality: "Good",
     resolution: "480p",
     devices: ["Phone", "Tablet", "Computer", "TV"]
   },
-  "Standard": {
+  "standard": {
     price: 500,
     quality: "better",
     resolution: "1080p",
     devices: ["Phone", "Tablet", "Computer", "TV"]
   },
-  "Premium": {
+  "premium": {
     price: 700,
     quality: "Best",
     resolution: "4K + HDR",
@@ -33,31 +26,39 @@ let monthlyPackages = {
 }
 
 let yearlyPackages = {
-  "Mobile": {
+  "mobile": {
     price: 1000,
     quality: "Good",
     resolution: "480p",
     devices: ["Phone", "Tablet"]
   },
-  "Basic": {
+  "basic": {
     price: 2000,
     quality: "Good",
     resolution: "480p",
     devices: ["Phone", "Tablet", "Computer", "TV"]
   },
-  "Standard": {
+  "standard": {
     price: 5000,
     quality: "better",
     resolution: "1080p",
     devices: ["Phone", "Tablet", "Computer", "TV"]
   },
-  "Premium": {
+  "premium": {
     price: 7000,
     quality: "Best",
     resolution: "4K + HDR",
     devices: ["Phone", "Tablet", "Computer", "TV"]
   }
 }
+
+let _code = "";
+let _price;
+let _plan="monthly";
+let _quality;
+let _resolution;
+let _devices;
+let _packages = monthlyPackages;
 
 monthlyClasses = {
   ".mobilePrice": "Rs. 100",
@@ -74,9 +75,8 @@ yearlyClasses = {
 }
 
 document.querySelector("#monthly-sel").onclick = () => {
-  console.log("Montly");
   document.querySelector("#monthly").checked = true
-  _plan = "Monthly"
+  _plan = "monthly"
   _packages = monthlyPackages
   Object.keys(monthlyClasses).forEach(item => {
     document.querySelector(item).innerHTML = monthlyClasses[item]
@@ -84,8 +84,7 @@ document.querySelector("#monthly-sel").onclick = () => {
 }
 
 document.querySelector("#yearly-sel").onclick = () => {
-  console.log("Yearly");
-  _plan = "Yearly"
+  _plan = "yearly"
   document.querySelector("#yearly").checked = true
   _packages = yearlyPackages
   Object.keys(yearlyClasses).forEach(item => {
@@ -100,7 +99,6 @@ function setPackage(code) {
   _quality=quality;
   _resolution=resolution;
   _devices=devices;
-
 }
 
 function goToPayment() {
