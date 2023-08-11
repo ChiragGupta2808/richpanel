@@ -29,6 +29,3 @@ $("#login-form").submit(function (event) {
         }
     });
 });
-
-
-$(document).ready(function () { });

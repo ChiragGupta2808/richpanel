@@ -27,7 +27,6 @@ $("#signup-form").submit(function (event) {
         },
         error: function(xhr, status, error) {
           document.getElementById("explore-form-btn").disabled = false;
-          //mixpanel.track('flight_form_fail');
           alert("Error: " + error);
         }
       });

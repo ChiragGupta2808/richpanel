@@ -15,9 +15,7 @@
                     <h1>Complete Payment</h1>
                     <p>Enter your credit or debit card details below:</p>
                     <div id="card-element">
-                        <!-- <input type="text" class="card_number" placeholder="Card number">
-                        <input type="text" class="expiry" pattern="\d{2}/\d{2}" placeholder="MM/YY">
-                        <input type="text" class="cvc" placeholder="CVC"> -->
+
                     </div>
                     <div id="card-errors" role="alert">
                         
@@ -38,7 +36,7 @@
                     </tr>
                     <tr>
                         <td>Plan Price</td>
-                        <td style="text-transform: capitalize;" class="right-align price"></td>
+                        <td class="right-align price"></td>
                     </tr>
                 </table>
             </div>
@@ -51,7 +49,6 @@
         var stripe = Stripe('pk_test_51NdnsPSBItKImWPpmISOIDUqQ3Vsc7k3VBOIj5p0DLwmJoRG0XqUiP3jy5GTXE2Z17dxniaMeRSLZDHoQr0aBPgS00VGaAVwB0');
         var elements = stripe.elements();
 
-        // Set up Stripe.js and Elements to use in checkout form
         var elements = stripe.elements();
         var style = {
             base: {
@@ -75,8 +72,6 @@
 
         form.addEventListener('submit', function(ev) {
             ev.preventDefault();
-            // If the client secret was rendered server-side as a data-secret attribute
-            // on the <form> element, you can retrieve it here by calling `form.dataset.secret`
             stripe.confirmCardPayment(form.dataset.secret, {
                 payment_method: {
                 card: card,
@@ -86,11 +81,10 @@
                 }
             }).then(function(result) {
                 if (result.error) {
-                // Show error to your customer (for example, insufficient funds)
-                console.log("Oops getting some eror")
+                // Show error
                 console.log(result.error.message);
                 } else {
-                // The payment has been processed!
+                // Payment processed
                 if (result.paymentIntent.status === 'succeeded') {
                     console.log("Succes")
                     window.location.replace("/currentPlan" + da)
@@ -101,6 +95,3 @@
     </script>
 </body>
 </html>
-
-
-<!-- http://127.0.0.1:5000/currentPlan?code=basic&plan=yearly&price=2000&quality=Good&resolution=480p&devices=Phone,Tablet,Computer,TV -->

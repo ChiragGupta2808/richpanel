@@ -61,17 +61,17 @@ let _devices;
 let _packages = monthlyPackages;
 
 monthlyClasses = {
-  ".mobilePrice": "Rs. 100",
-  ".basicPrice": "Rs. 200",
-  ".standardPrice": "Rs. 500",
-  ".premiumPrice": "Rs. 700"
+  ".mobilePrice": "₹ 100",
+  ".basicPrice": "₹ 200",
+  ".standardPrice": "₹ 500",
+  ".premiumPrice": "₹ 700"
 }
 
 yearlyClasses = {
-  ".mobilePrice": "Rs. 1000",
-  ".basicPrice": "Rs. 2000",
-  ".standardPrice": "Rs. 5000",
-  ".premiumPrice": "Rs. 7000"
+  ".mobilePrice": "₹ 1000",
+  ".basicPrice": "₹ 2000",
+  ".standardPrice": "₹ 5000",
+  ".premiumPrice": "₹ 7000"
 }
 
 document.querySelector("#monthly-sel").onclick = () => {

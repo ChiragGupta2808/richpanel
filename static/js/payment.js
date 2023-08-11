@@ -11,14 +11,8 @@ const resolution = getQueryParam("resolution");
 const devices = getQueryParam("devices");
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log(code);
+    let per = plan === "monthly" ? "/mo" : "/yr";
     document.querySelector(".code").innerHTML = code;
     document.querySelector(".plan").innerHTML = plan;
-    document.querySelector(".price").innerHTML = price;
+    document.querySelector(".price").innerHTML = "₹" + price + per;
 });
-
-const urlParams = new URLSearchParams(window.location.search)
-
-const mydevices = urlParams.get('devices')
-
-console.log(mydevices.split(","));

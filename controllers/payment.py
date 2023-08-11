@@ -21,18 +21,6 @@ def create_checkout_session():
             payment_method_types=["card"],
             metadata={"integration_check": "accept_a_payment"},
         )
-        # checkout_session = stripe.checkout.Session.create(
-        #     line_items=[
-        #         {
-        #             # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        #             'price': '{{PRICE_ID}}',
-        #             'quantity': 1,
-        #         },
-        #     ],
-        #     mode='payment',
-        #     success_url=request.base_url + '/success.html',
-        #     cancel_url=request.base_url + '/cancel.html',
-        # )
     except Exception as e:
         return str(e)
 
