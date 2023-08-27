@@ -4,10 +4,6 @@ $("#signup-form").submit(function (event) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const rememberMe = document.querySelector('input[name="remember"]').checked;
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Remember Me:", rememberMe);
     data = {
         "name": name,
         "email": email,
@@ -20,7 +16,7 @@ $("#signup-form").submit(function (event) {
         contentType: "application/json",
         success: function(res) {
           if(res.success) {
-            window.location.href = "/pricing";
+            window.location.href = "/login";
           } else {
             alert(res.message)
           }
@@ -31,6 +27,3 @@ $("#signup-form").submit(function (event) {
         }
       });
 });
-
-
-$(document).ready(function () {});

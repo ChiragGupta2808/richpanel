@@ -97,21 +97,6 @@
         </table>
         <button onclick="goToPayment()" id="next-button">Next</button>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('.pricing-table th').hover(function () {
-                var index = $(this).index();
-                $('.pricing-table tr').each(function () {
-                    $(this).find('td').eq(index).addClass('hover-highlight');
-                    $(this).find('td').eq(index).find('span').addClass('hover-highlight');
-                });
-            }, function () {
-                $('.pricing-table td').removeClass('hover-highlight');
-                $('.pricing-table span').removeClass('hover-highlight');
-            });
-        });
-    </script>
     <script src="\static\js\pricing.js"></script>
 </body>
-
 </html>

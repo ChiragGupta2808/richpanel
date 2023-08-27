@@ -16,7 +16,7 @@ db = MongoEngine(app)
 CORS(app)
 
 app.register_blueprint(home, url_prefix='/')
-app.register_blueprint(payment, url_prefix='/guptaji')
+app.register_blueprint(payment, url_prefix='/payments')
 
 @app.route('/')
 @app.route('/login')

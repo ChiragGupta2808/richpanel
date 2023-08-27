@@ -21,30 +21,9 @@
             <p id="devicesList"></p>
             <h3 class="plan-price">&#8377; <span id="amount"></span><span id="duration"></span></h3>
             <button class="change-plan-button" onclick="window.location.href = '/pricing'">Choose Plan</button>
-            <p class="subscription-info">Your subscription has been cancelled and you will loose access to services on July 12th, 2023.</p>
+            <p class="subscription-info">Your subscription has been cancelled and you will loose access to services on <span id="cancelDate"></span>.</p>
         </div>
     </div>
-
-    <script>
-        function getQueryParam(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
-
-        $(document).ready(function () {
-            const code = getQueryParam("code");
-            const plan = getQueryParam("plan");
-            const price = getQueryParam("price");
-            const quality = getQueryParam("quality");
-            const resolution = getQueryParam("resolution");
-            const devices = getQueryParam("devices");
-
-            document.getElementsByClassName("plan-name")[0].innerHTML = code;
-            document.getElementById("amount").innerHTML = price;
-            document.getElementById("duration").innerHTML = plan === "yearly" ? "/yr" : "/mo";
-            document.getElementById("devicesList").innerHTML = devices.split(',').join(' + ');
-        });
-    </script>
-    
+    <script src="\static\js\cancelPlan.js"></script>
 </body>
 </html>

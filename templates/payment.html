@@ -43,55 +43,5 @@
         </div>
     </div>
     <script src="\static\js\payment.js"></script>
-    <script>
-
-        const da = window.location.search
-        var stripe = Stripe('pk_test_51NdnsPSBItKImWPpmISOIDUqQ3Vsc7k3VBOIj5p0DLwmJoRG0XqUiP3jy5GTXE2Z17dxniaMeRSLZDHoQr0aBPgS00VGaAVwB0');
-        var elements = stripe.elements();
-
-        var elements = stripe.elements();
-        var style = {
-            base: {
-                color: "#32325d",
-            }
-        };
-
-        var card = elements.create("card", { style: style });
-        card.mount("#card-element");
-
-        card.on('change', ({error}) => {
-        let displayError = document.getElementById('card-errors');
-        if (error) {
-            displayError.textContent = error.message;
-        } else {
-            displayError.textContent = '';
-        }
-        });
-
-        var form = document.getElementById('payment-form');
-
-        form.addEventListener('submit', function(ev) {
-            ev.preventDefault();
-            stripe.confirmCardPayment(form.dataset.secret, {
-                payment_method: {
-                card: card,
-                billing_details: {
-                    name: 'Jenny Rosen'
-                }
-                }
-            }).then(function(result) {
-                if (result.error) {
-                // Show error
-                console.log(result.error.message);
-                } else {
-                // Payment processed
-                if (result.paymentIntent.status === 'succeeded') {
-                    console.log("Succes")
-                    window.location.replace("/currentPlan" + da)
-                }
-                }
-            });
-        });
-    </script>
 </body>
 </html>

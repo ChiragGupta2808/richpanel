@@ -105,6 +105,19 @@ function goToPayment() {
   if(_code == ""){
     return alert("Please select a plan !");
   }
-
   window.location.href= `/payment?code=${_code}&plan=${_plan}&price=${_price}&quality=${_quality}&resolution=${_resolution}&devices=${_devices.join(',')}`
 }
+
+$(document).ready(function () {
+  $('.pricing-table th:not(:first-child)').hover(function () {
+      
+      var index = $(this).index();
+      $('.pricing-table tr').each(function () {
+          $(this).find('td').eq(index).addClass('hover-highlight');
+          $(this).find('td').eq(index).find('span').addClass('hover-highlight');
+      });
+  }, function () {
+      $('.pricing-table td').removeClass('hover-highlight');
+      $('.pricing-table span').removeClass('hover-highlight');
+  });
+});
